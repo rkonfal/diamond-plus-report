@@ -690,87 +690,73 @@
         }
 
         /* Responsive */
+        /* Hamburger button - hidden on desktop */
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 1100;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 22px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        /* Sidebar overlay for mobile */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        .sidebar-overlay.visible {
+            display: block;
+        }
+
         @media (max-width: 1024px) {
-            .main {
-                padding: 24px;
-            }
-
-            .charts-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .kpi-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            html { zoom: 1; }
+            .main { padding: 24px; }
+            .charts-grid { grid-template-columns: 1fr; }
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
-            .sidebar {
-                width: 220px;
-            }
-
-            .main {
-                margin-left: 220px;
-                padding: 16px;
-            }
-
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
-
-            .header-actions {
-                width: 100%;
-                flex-wrap: wrap;
-            }
-
-            .kpi-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .insights {
-                grid-template-columns: 1fr;
-            }
-
-            .entry-card {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .entry-amount {
-                width: 100%;
-                text-align: left;
-            }
+            html { zoom: 1; }
+            .hamburger { display: flex; }
+            .sidebar { position: fixed; width: 260px; transform: translateX(-100%); }
+            .sidebar.visible { transform: translateX(0); }
+            .main { margin-left: 0; padding: 16px; padding-top: 64px; }
+            .header { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .header h1 { font-size: 24px; }
+            .header-actions { width: 100%; flex-wrap: wrap; }
+            .kpi-grid { grid-template-columns: 1fr; }
+            .insights { grid-template-columns: 1fr; }
+            .insight-value { font-size: 20px; }
+            .kpi-value { font-size: 22px; }
+            .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .entry-card { flex-direction: column; align-items: flex-start; }
+            .entry-amount { width: 100%; text-align: left; }
+            .filter-pills { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+            .filter-pill { white-space: nowrap; flex-shrink: 0; }
         }
 
         @media (max-width: 480px) {
-            .sidebar {
-                position: absolute;
-                transform: translateX(-100%);
-                width: 260px;
-            }
-
-            .sidebar.visible {
-                transform: translateX(0);
-            }
-
-            .main {
-                margin-left: 0;
-            }
-
-            .header h1 {
-                font-size: 24px;
-            }
-
-            .table-wrapper {
-                font-size: 12px;
-            }
-
-            .table-wrapper td,
-            .table-wrapper th {
-                padding: 8px;
-            }
+            .main { padding: 12px; padding-top: 60px; }
+            .header h1 { font-size: 20px; }
+            .table-wrapper { font-size: 11px; }
+            .table-wrapper td, .table-wrapper th { padding: 8px 6px; }
+            .kpi-card { padding: 16px; }
+            .insight-card { padding: 14px; }
         }
 
         .waterfall-bar {
@@ -783,8 +769,10 @@
     </style>
 </head>
 <body>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">☰</button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <div class="container">
-        <nav class="sidebar">
+        <nav class="sidebar" id="sidebar">
             <div class="sidebar-brand">💎 Diamond Plus</div>
             <div class="sidebar-nav">
                 <button class="nav-item active" data-panel="dashboard">
@@ -1513,6 +1501,13 @@ const D = {"pnl_all": {"rev": [15628499.3, 14498634, 13602558], "cogs": [1085450
             const panelMap = { '1': 'dashboard', '2': 'strediska', '3': 'journal', '4': 'charts' };
             if (panelMap[e.key]) switchPanel(panelMap[e.key]);
         });
+
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        hamburgerBtn.addEventListener('click', () => { sidebar.classList.toggle('visible'); sidebarOverlay.classList.toggle('visible'); });
+        sidebarOverlay.addEventListener('click', () => { sidebar.classList.remove('visible'); sidebarOverlay.classList.remove('visible'); });
+        document.querySelectorAll('.nav-item').forEach(btn => { btn.addEventListener('click', () => { if (window.innerWidth <= 768) { sidebar.classList.remove('visible'); sidebarOverlay.classList.remove('visible'); } }); });
 
         // Initial render
         renderDashboard();
