@@ -55,8 +55,7 @@
 
         html {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            scroll-behavior: smooth;
-            zoom: 0.8;
+            scroll-behavior: smooth; zoom: 0.8;
         }
 
         body {
@@ -1220,7 +1219,7 @@ const D = {"pnl_all": {"rev": [15628499.3, 14498634, 13602558], "cogs": [1085450
 
                     if (accEntryCount > 0) {
                         groupHtml += `<div class="account-section">
-                            <div class="account-header" style="border-left: 4px solid ${grp.color}; cursor:pointer;" onclick="this.classList.toggle('collapsed')">
+                            <div class="account-header collapsed" style="border-left: 4px solid ${grp.color}; cursor:pointer;" onclick="this.classList.toggle('collapsed')">
                                 <span style="font-size:9px;transition:transform 0.2s;">▶</span>
                                 <span style="font-weight:600;">${acc.name}</span>
                                 <span style="margin-left:auto;font-size:11px;color:var(--text-sub);font-family:'JetBrains Mono',monospace;">
@@ -1236,7 +1235,7 @@ const D = {"pnl_all": {"rev": [15628499.3, 14498634, 13602558], "cogs": [1085450
 
                 if (groupEntryCount > 0) {
                     html += `<div class="journal-group">
-                        <div class="group-header" style="border-left: 4px solid ${grp.color}; cursor:pointer;" onclick="this.classList.toggle('collapsed')">
+                        <div class="group-header collapsed" style="border-left: 4px solid ${grp.color}; cursor:pointer;" onclick="this.classList.toggle('collapsed')">
                             <div>
                                 <span style="font-weight:700;font-size:14px;">${grp.label}</span>
                                 <span style="font-size:11px;color:var(--text-sub);margin-left:8px;">${grp.desc || ''}</span>
