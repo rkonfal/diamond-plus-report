@@ -912,6 +912,12 @@ aside a, .sidebar-nav a, .sidebar a, nav a[href*="rkonfal.github.io"] { font-siz
                 </svg>
                 Účetní výkazy
             </button>
+            <button class="nav-link" data-panel="finance-cash">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Finance &amp; Cash
+            </button>
         </nav>
         <div class="sidebar-footer">
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
@@ -1062,6 +1068,99 @@ aside a, .sidebar-nav a, .sidebar a, nav a[href*="rkonfal.github.io"] { font-siz
         </div>
     </div>
 
+        <!-- Finance & Cash Panel -->
+        <div class="panel" id="finance-cash">
+            <div class="insights" style="margin-bottom:24px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                    <span style="font-size:24px;">💳</span>
+                    <h2 style="margin:0;font-size:20px;font-weight:700;color:var(--text);">Finanční přehled — hotovost &amp; závazky</h2>
+                </div>
+                <p style="color:var(--text-muted);font-size:13px;margin:0;">Zdroj: ABRA Flexi — Obratová předvaha (účet 221) + Neuhrazené faktury přijaté</p>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="kpi-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom:24px;">
+                <div class="insight-card">
+                    <div class="insight-label">Cash na účtech</div>
+                    <div class="insight-value" style="color:var(--success);">10 255 308 Kč</div>
+                    <div class="insight-desc">DAL zůstatek — účet 221 (15 bankovních účtů + 4 pokladny)</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-label">Neuhrazené FP</div>
+                    <div class="insight-value" style="color:var(--danger);">4 799 073 Kč</div>
+                    <div class="insight-desc">11 neuhrazených faktur přijatých od 9 dodavatelů</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-label">Čistá cash pozice</div>
+                    <div class="insight-value" style="color:var(--brand);">5 456 235 Kč</div>
+                    <div class="insight-desc">Cash na účtech mínus neuhrazené závazky</div>
+                </div>
+            </div>
+
+            <!-- Bank Accounts Table -->
+            <h3 style="font-size:16px;font-weight:600;color:var(--text);margin-bottom:12px;">🏦 Bankovní účty a pokladny</h3>
+            <div class="table-wrapper" style="margin-bottom:28px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;">Účet</th>
+                            <th style="text-align:left;">Banka</th>
+                            <th style="text-align:left;">Měna</th>
+                            <th style="text-align:left;">Poznámka</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="category-name">131-3675980207/0100</td><td>Komerční banka</td><td><span class="badge ban">CZK</span></td><td style="color:var(--text-muted);font-size:12px;"></td></tr>
+                        <tr><td class="category-name">131-7690227/0100</td><td>Komerční banka</td><td><span class="badge ban">CZK</span></td><td style="color:var(--text-muted);font-size:12px;"></td></tr>
+                        <tr><td class="category-name">131-1211280297/0100</td><td>Komerční banka</td><td><span class="badge fap">EUR</span></td><td style="color:var(--text-muted);font-size:12px;"></td></tr>
+                        <tr><td class="category-name">2901338673/2010</td><td>FIO banka</td><td><span class="badge ban">CZK</span></td><td style="color:var(--text-muted);font-size:12px;">hlavní</td></tr>
+                        <tr><td class="category-name">2002503110/2010</td><td>FIO banka</td><td><span class="badge ban">CZK</span></td><td style="color:var(--text-muted);font-size:12px;"></td></tr>
+                        <tr><td class="category-name">2202503115/2010</td><td>FIO banka</td><td><span class="badge ban">CZK</span></td><td style="color:var(--text-muted);font-size:12px;"></td></tr>
+                        <tr><td class="category-name">2601338698/2010</td><td>FIO banka</td><td><span class="badge ban">CZK</span></td><td style="color:var(--text-muted);font-size:12px;">výplaty</td></tr>
+                        <tr><td class="category-name">2501338690/2010</td><td>FIO banka</td><td><span class="badge fap">EUR</span></td><td style="color:var(--text-muted);font-size:12px;"></td></tr>
+                        <tr><td class="category-name">2901338702/2010</td><td>FIO banka</td><td><span class="badge ban">CZK</span></td><td style="color:var(--text-muted);font-size:12px;"></td></tr>
+                        <tr><td class="category-name">107-164902</td><td>ThePay</td><td><span class="badge ban">CZK</span></td><td style="color:var(--text-muted);font-size:12px;"></td></tr>
+                        <tr><td class="category-name">107-164902</td><td>ThePay</td><td><span class="badge fap">EUR</span></td><td style="color:var(--text-muted);font-size:12px;"></td></tr>
+                        <tr><td class="category-name">203-164902</td><td>ThePay</td><td><span class="badge ban">CZK</span></td><td style="color:var(--text-muted);font-size:12px;">klinika</td></tr>
+                        <tr><td class="category-name">203-164902</td><td>ThePay</td><td><span class="badge fap">EUR</span></td><td style="color:var(--text-muted);font-size:12px;">klinika</td></tr>
+                        <tr><td class="category-name">2701033365/5800</td><td>J&amp;T banka</td><td><span class="badge ban">CZK</span></td><td style="color:var(--text-muted);font-size:12px;"></td></tr>
+                        <tr><td class="category-name">20522412/0800</td><td>Česká spořitelna</td><td><span class="badge ban">CZK</span></td><td style="color:var(--text-muted);font-size:12px;"></td></tr>
+                        <tr style="background:rgba(92,36,80,0.04);"><td class="category-name">POKLADNA KČ</td><td colspan="2" style="color:var(--text-muted);font-size:12px;">Pokladna</td><td><span class="badge ban">CZK</span></td></tr>
+                        <tr style="background:rgba(92,36,80,0.04);"><td class="category-name">POKLADNA EUR</td><td colspan="2" style="color:var(--text-muted);font-size:12px;">Pokladna</td><td><span class="badge fap">EUR</span></td></tr>
+                        <tr style="background:rgba(92,36,80,0.04);"><td class="category-name">POKLADNA KČ - KLINIK</td><td colspan="2" style="color:var(--text-muted);font-size:12px;">Pokladna — klinika</td><td><span class="badge ban">CZK</span></td></tr>
+                        <tr style="background:rgba(92,36,80,0.04);"><td class="category-name">POKL-CZK</td><td colspan="2" style="color:var(--text-muted);font-size:12px;">Pokladna</td><td><span class="badge ban">CZK</span></td></tr>
+                        <tr class="profit-row"><td colspan="3"><strong>Celkový zůstatek (DAL — účet 221)</strong></td><td style="text-align:right;font-family:'JetBrains Mono',monospace;white-space:nowrap;">10 255 308 Kč</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Unpaid Invoices Table -->
+            <h3 style="font-size:16px;font-weight:600;color:var(--text);margin-bottom:12px;">📋 Neuhrazené faktury přijaté</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;">Dodavatel</th>
+                            <th style="text-align:right;">Počet faktur</th>
+                            <th style="text-align:right;">Zbývá uhradit (Kč)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="category-name">ASTI GROUP SIA (TianDe)</td><td style="text-align:right;">1</td><td style="text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--danger);">3 242 929</td></tr>
+                        <tr><td class="category-name">4PX Express CZ</td><td style="text-align:right;">2</td><td style="text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--danger);">734 126</td></tr>
+                        <tr><td class="category-name">Česká pošta</td><td style="text-align:right;">1</td><td style="text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--danger);">558 254</td></tr>
+                        <tr><td class="category-name">WPJ s.r.o.</td><td style="text-align:right;">1</td><td style="text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--warning);">150 393</td></tr>
+                        <tr><td class="category-name">ProfiSMS</td><td style="text-align:right;">1</td><td style="text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--warning);">60 000</td></tr>
+                        <tr><td class="category-name">Coworkers.ai</td><td style="text-align:right;">1</td><td style="text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--warning);">43 560</td></tr>
+                        <tr><td class="category-name">O2 Czech Republic</td><td style="text-align:right;">1</td><td style="text-align:right;font-family:'JetBrains Mono',monospace;">4 711</td></tr>
+                        <tr><td class="category-name">Anthropic PBC</td><td style="text-align:right;">1</td><td style="text-align:right;font-family:'JetBrains Mono',monospace;">3 500</td></tr>
+                        <tr><td class="category-name">Heureka Group</td><td style="text-align:right;">1</td><td style="text-align:right;font-family:'JetBrains Mono',monospace;">1 600</td></tr>
+                        <tr class="profit-row"><td><strong>Celkem</strong></td><td style="text-align:right;"><strong>11</strong></td><td style="text-align:right;font-family:'JetBrains Mono',monospace;white-space:nowrap;"><strong>4 799 073 Kč</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
     <script>
@@ -1152,7 +1251,8 @@ const D = {"pnl_all":{"rev":[15628499.3,14498634,13602558,16130000],"cogs":[1085
                 Přehled: 'Konsolidovaná data',
                 strediska: 'Kde vyděláváme',
                 journal: 'Detail nákladů',
-                charts: 'Trendy'
+                charts: 'Trendy',
+                'finance-cash': 'Finance & Cash'
             };
             document.getElementById('panelTitle').textContent = titles[panelId] || panelId;
 
