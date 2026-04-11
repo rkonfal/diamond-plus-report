@@ -1066,7 +1066,6 @@ aside a, .sidebar-nav a, .sidebar a, nav a[href*="rkonfal.github.io"] { font-siz
                 <div style="background:#fff7ed;border-radius:8px;padding:16px;border:1px solid #fdba74;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><span style="font-size:18px;">⚖️</span><strong style="color:#9a3412;">Celkový verdikt</strong></div><p style="color:#78350f;margin:0;font-size:13px;line-height:1.6;">Firma je provozně zisková (902K před zdaněním), ale kvalita zisku je diskutabilní. Růst provozního zisku je tažený snižováním nákladů, ne růstem tržeb. Finanční náklady rostou alarmujícím tempem. <strong>Doporučení:</strong> prověřit strukturu finančních nákladů a skutečnou nákladovost práce.</p></div>
             </div>
         </div>
-    </div>
 
         <!-- Finance & Cash Panel -->
         <div class="panel" id="finance-cash">
@@ -1079,7 +1078,7 @@ aside a, .sidebar-nav a, .sidebar a, nav a[href*="rkonfal.github.io"] { font-siz
             </div>
 
             <!-- KPI Cards -->
-            <div class="kpi-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom:24px;">
+            <div class="insights">
                 <div class="insight-card">
                     <div class="insight-label">Cash na účtech</div>
                     <div class="insight-value" style="color:var(--success);">10 255 308 Kč</div>
@@ -1160,6 +1159,7 @@ aside a, .sidebar-nav a, .sidebar a, nav a[href*="rkonfal.github.io"] { font-siz
                 </table>
             </div>
         </div>
+    </div>
 
     <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
@@ -1252,6 +1252,7 @@ const D = {"pnl_all":{"rev":[15628499.3,14498634,13602558,16130000],"cogs":[1085
                 strediska: 'Kde vyděláváme',
                 journal: 'Detail nákladů',
                 charts: 'Trendy',
+                'ucetni-vykazy': 'Účetní výkazy',
                 'finance-cash': 'Finance & Cash'
             };
             document.getElementById('panelTitle').textContent = titles[panelId] || panelId;
